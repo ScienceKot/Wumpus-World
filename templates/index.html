@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css')}}">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=VT323">
+
+</head>
+<body>
+    <div class="replay">
+        <a href="/restart">
+            <img src="{{url_for('static', filename='imgs/replay.png')}}" alt="">
+        </a>
+    </div>
+    <div class="main">
+        <div class="maze" style="background-image: url({{url_for('static', filename='imgs/maze.png')}}) ">
+            <div class="maze-mini">
+                <div class="maze-row">
+                    <div class="maze-cell">
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["00"]["agent"] == True %}
+                            <img class="character agent" src="{{url_for('static', filename='imgs/agent.png')}}" alt="" style="z-index: 7">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["00"]["wumpus"] == True %}
+
+                            <img class="character wumpus" src="{{url_for('static', filename='imgs/wumpus.png')}}" alt="" style="z-index: 3">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["00"]["pit"] == True %}
+
+                            <img class="character pit" src="{{url_for('static', filename='imgs/pit.png')}}" alt="" style="z-index: 1">
+                        {% endif %}<div class="maze-cell-grey"></div>
+                        {% if matrix["00"]["gold"] == True %}
+
+                            <img class="character gold" src="{{url_for('static', filename='imgs/gold.png')}}" alt="" style="z-index: 2">
+                        {% endif %}<div class="maze-cell-grey"></div>
+                        {% if matrix["00"]["breeze"] == True %}
+
+                            <img class="character breeze" src="{{url_for('static', filename='imgs/breeze.png')}}" alt="" style="z-index: 4">
+                        {% endif %}<div class="maze-cell-grey"></div>
+                        {% if matrix["00"]["glitter"] == True %}
+
+                            <img class="character glitter" src="{{url_for('static', filename='imgs/glitter.png')}}" alt="" style="z-index: 6">
+                        {% endif %}<div class="maze-cell-grey"></div>
+                        {% if matrix["00"]["stench"] == True %}
+
+                        <img class="character stench" src="{{url_for('static', filename='imgs/stench.png')}}" alt="" style="z-index: 5">
+                        {% endif %}
+                    </div>
+                    <div class="maze-cell"><div class="maze-cell-grey"></div>
+                        {% if matrix["01"]["agent"] == True %}
+
+                        <img class="character agent" src="{{url_for('static', filename='imgs/agent.png')}}" alt="" style="z-index: 7">
+                        {% endif %}<div class="maze-cell-grey"></div>
+                        {% if matrix["01"]["wumpus"] == True %}
+
+                        <img class="character wumpus" src="{{url_for('static', filename='imgs/wumpus.png')}}" alt="" style="z-index: 3">
+                        {% endif %}<div class="maze-cell-grey"></div>
+                        {% if matrix["01"]["pit"] == True %}
+
+                        <img class="character pit" src="{{url_for('static', filename='imgs/pit.png')}}" alt="" style="z-index: 1">
+                        {% endif %}<div class="maze-cell-grey"></div>
+                        {% if matrix["01"]["gold"] == True %}
+
+                        <img class="character gold" src="{{url_for('static', filename='imgs/gold.png')}}" alt="" style="z-index: 2">
+                        {% endif %}<div class="maze-cell-grey"></div>
+                        {% if matrix["01"]["breeze"] == True %}
+
+                        <img class="character breeze" src="{{url_for('static', filename='imgs/breeze.png')}}" alt="" style="z-index: 5">
+                        {% endif %}<div class="maze-cell-grey"></div>
+                        {% if matrix["01"]["glitter"] == True %}
+
+                        <img class="character glitter" src="{{url_for('static', filename='imgs/glitter.png')}}" alt="" style="z-index: 6">
+                        {% endif %}<div class="maze-cell-grey"></div>
+                        {% if matrix["01"]["stench"] == True %}
+
+                        <img class="character stench" src="{{url_for('static', filename='imgs/stench.png')}}" alt="" style="z-index: 5">
+                        {% endif %}
+                    </div>
+                    <div class="maze-cell"><div class="maze-cell-grey"></div>
+                        {% if matrix["02"]["agent"] == True %}
+
+                        <img class="character agent" src="{{url_for('static', filename='imgs/agent.png')}}" alt="" style="z-index: 7">
+                        {% endif %}<div class="maze-cell-grey"></div>
+                        {% if matrix["02"]["wumpus"] == True %}
+
+                        <img class="character wumpus" src="{{url_for('static', filename='imgs/wumpus.png')}}" alt="" style="z-index: 3">
+                        {% endif %} <div class="maze-cell-grey"></div>
+                        {% if matrix["02"]["pit"] == True %}
+
+                        <img class="character pit" src="{{url_for('static', filename='imgs/pit.png')}}" alt="" style="z-index: 1">
+                        {% endif %}<div class="maze-cell-grey"></div>
+                        {% if matrix["02"]["gold"] == True %}
+
+                        <img class="character gold" src="{{url_for('static', filename='imgs/gold.png')}}" alt="" style="z-index: 2">
+                        {% endif %}<div class="maze-cell-grey"></div>
+                        {% if matrix["02"]["breeze"] == True %}
+
+                        <img class="character breeze" src="{{url_for('static', filename='imgs/breeze.png')}}" alt="" style="z-index: 4">
+                        {% endif %}<div class="maze-cell-grey"></div>
+                        {% if matrix["02"]["glitter"] == True %}
+
+                        <img class="character glitter" src="{{url_for('static', filename='imgs/glitter.png')}}" alt="" style="z-index: 6">
+                        {% endif %}<div class="maze-cell-grey"></div>
+                        {% if matrix["02"]["stench"] == True %}
+
+                        <img class="character stench" src="{{url_for('static', filename='imgs/stench.png')}}" alt="" style="z-index: 5">
+                        {% endif %}
+                    </div>
+                    <div class="maze-cell">
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["03"]["agent"] == True %}
+                        <img class="character agent" src="{{url_for('static', filename='imgs/agent.png')}}" alt="" style="z-index: 7">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["03"]["wumpus"] == True %}
+                        <img class="character wumpus" src="{{url_for('static', filename='imgs/wumpus.png')}}" alt="" style="z-index: 3">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["03"]["pit"] == True %}
+                        <img class="character pit" src="{{url_for('static', filename='imgs/pit.png')}}" alt="" style="z-index: 1">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["03"]["gold"] == True %}
+                        <img class="character gold" src="{{url_for('static', filename='imgs/gold.png')}}" alt="" style="z-index: 2">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["03"]["breeze"] == True %}
+                        <img class="character breeze" src="{{url_for('static', filename='imgs/breeze.png')}}" alt="" style="z-index: 4">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["03"]["glitter"] == True %}
+                        <img class="character glitter" src="{{url_for('static', filename='imgs/glitter.png')}}" alt="" style="z-index: 6">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["03"]["stench"] == True %}
+                        <img class="character stench" src="{{url_for('static', filename='imgs/stench.png')}}" alt="" style="z-index: 5">
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="maze-row">
+                    <div class="maze-cell">
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["10"]["agent"] == True %}
+                        <img class="character agent" src="{{url_for('static', filename='imgs/agent.png')}}" alt="" style="z-index: 7">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["10"]["wumpus"] == True %}
+                        <img class="character wumpus" src="{{url_for('static', filename='imgs/wumpus.png')}}" alt="" style="z-index: 3">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["10"]["pit"] == True %}
+                        <img class="character pit" src="{{url_for('static', filename='imgs/pit.png')}}" alt="" style="z-index: 1">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["10"]["gold"] == True %}
+                        <img class="character gold" src="{{url_for('static', filename='imgs/gold.png')}}" alt="" style="z-index: 2">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["10"]["breeze"] == True %}
+                        <img class="character breeze" src="{{url_for('static', filename='imgs/breeze.png')}}" alt="" style="z-index: 4">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["10"]["glitter"] == True %}
+                        <img class="character glitter" src="{{url_for('static', filename='imgs/glitter.png')}}" alt="" style="z-index: 6">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["10"]["stench"] == True %}
+                        <img class="character stench" src="{{url_for('static', filename='imgs/stench.png')}}" alt="" style="z-index: 5">
+                        {% endif %}
+                    </div>
+                    <div class="maze-cell">
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["11"]["agent"] == True %}
+                        <img class="character agent" src="{{url_for('static', filename='imgs/agent.png')}}" alt="" style="z-index: 7">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["11"]["wumpus"] == True %}
+                        <img class="character wumpus" src="{{url_for('static', filename='imgs/wumpus.png')}}" alt="" style="z-index: 3">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["11"]["pit"] == True %}
+                        <img class="character pit" src="{{url_for('static', filename='imgs/pit.png')}}" alt="" style="z-index: 1">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["11"]["gold"] == True %}
+                        <img class="character gold" src="{{url_for('static', filename='imgs/gold.png')}}" alt="" style="z-index: 2">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["11"]["breeze"] == True %}
+                        <img class="character breeze" src="{{url_for('static', filename='imgs/breeze.png')}}" alt="" style="z-index: 4">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["11"]["glitter"] == True %}
+                        <img class="character glitter" src="{{url_for('static', filename='imgs/glitter.png')}}" alt="" style="z-index: 6">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["11"]["stench"] == True %}
+                        <img class="character stench" src="{{url_for('static', filename='imgs/stench.png')}}" alt="" style="z-index: 5">
+                        {% endif %}
+                    </div>
+                    <div class="maze-cell">
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["12"]["agent"] == True %}
+                        <img class="character agent" src="{{url_for('static', filename='imgs/agent.png')}}" alt="" style="z-index: 7">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["12"]["wumpus"] == True %}
+                        <img class="character wumpus" src="{{url_for('static', filename='imgs/wumpus.png')}}" alt="" style="z-index: 3">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["12"]["pit"] == True %}
+                        <img class="character pit" src="{{url_for('static', filename='imgs/pit.png')}}" alt="" style="z-index: 1">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["12"]["gold"] == True %}
+                        <img class="character gold" src="{{url_for('static', filename='imgs/gold.png')}}" alt="" style="z-index: 2">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["12"]["breeze"] == True %}
+                        <img class="character breeze" src="{{url_for('static', filename='imgs/breeze.png')}}" alt="" style="z-index: 4">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["12"]["glitter"] == True %}
+                        <img class="character glitter" src="{{url_for('static', filename='imgs/glitter.png')}}" alt="" style="z-index: 6">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["12"]["stench"] == True %}
+                        <img class="character stench" src="{{url_for('static', filename='imgs/stench.png')}}" alt="" style="z-index: 5">
+                        {% endif %}
+                    </div>
+                    <div class="maze-cell">
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["13"]["agent"] == True %}
+                        <img class="character agent" src="{{url_for('static', filename='imgs/agent.png')}}" alt="" style="z-index: 7">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["13"]["wumpus"] == True %}
+                        <img class="character wumpus" src="{{url_for('static', filename='imgs/wumpus.png')}}" alt="" style="z-index: 3">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["13"]["pit"] == True %}
+                        <img class="character pit" src="{{url_for('static', filename='imgs/pit.png')}}" alt="" style="z-index: 1">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["13"]["gold"] == True %}
+                        <img class="character gold" src="{{url_for('static', filename='imgs/gold.png')}}" alt="" style="z-index: 2">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["13"]["breeze"] == True %}
+                        <img class="character breeze" src="{{url_for('static', filename='imgs/breeze.png')}}" alt="" style="z-index: 4">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["13"]["glitter"] == True %}
+                        <img class="character glitter" src="{{url_for('static', filename='imgs/glitter.png')}}" alt="" style="z-index: 6">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["13"]["stench"] == True %}
+                        <img class="character stench" src="{{url_for('static', filename='imgs/stench.png')}}" alt="" style="z-index: 5">
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="maze-row">
+                    <div class="maze-cell">
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["20"]["agent"] == True %}
+                        <img class="character agent" src="{{url_for('static', filename='imgs/agent.png')}}" alt="" style="z-index: 5">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["20"]["wumpus"] == True %}
+                        <img class="character wumpus" src="{{url_for('static', filename='imgs/wumpus.png')}}" alt="" style="z-index: 3">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["20"]["pit"] == True %}
+                        <img class="character pit" src="{{url_for('static', filename='imgs/pit.png')}}" alt="" style="z-index: 1">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["20"]["gold"] == True %}
+                        <img class="character gold" src="{{url_for('static', filename='imgs/gold.png')}}" alt="" style="z-index: 2">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["20"]["breeze"] == True %}
+                        <img class="character breeze" src="{{url_for('static', filename='imgs/breeze.png')}}" alt="" style="z-index: 4">
+                        {% endif %}
+                        {% if matrix["20"]["glitter"] == True %}
+                        <img class="character glitter" src="{{url_for('static', filename='imgs/glitter.png')}}" alt="" style="z-index: 6">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["20"]["stench"] == True %}
+                        <img class="character stench" src="{{url_for('static', filename='imgs/stench.png')}}" alt="" style="z-index: 5">
+                        {% endif %}
+                    </div>
+                    <div class="maze-cell">
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["21"]["agent"] == True %}
+                        <img class="character agent" src="{{url_for('static', filename='imgs/agent.png')}}" alt="" style="z-index: 7">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["21"]["wumpus"] == True %}
+                        <img class="character wumpus" src="{{url_for('static', filename='imgs/wumpus.png')}}" alt="" style="z-index: 3">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["21"]["pit"] == True %}
+                        <img class="character pit" src="{{url_for('static', filename='imgs/pit.png')}}" alt="" style="z-index: 1">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["21"]["gold"] == True %}
+                        <img class="character gold" src="{{url_for('static', filename='imgs/gold.png')}}" alt="" style="z-index: 2">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["21"]["breeze"] == True %}
+                        <img class="character breeze" src="{{url_for('static', filename='imgs/breeze.png')}}" alt="" style="z-index: 4">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["21"]["glitter"] == True %}
+                        <img class="character glitter" src="{{url_for('static', filename='imgs/glitter.png')}}" alt="" style="z-index: 6">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["21"]["stench"] == True %}
+                        <img class="character stench" src="{{url_for('static', filename='imgs/stench.png')}}" alt="" style="z-index: 5">
+                        {% endif %}
+                    </div>
+                    <div class="maze-cell">
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["22"]["agent"] == True %}
+                        <img class="character agent" src="{{url_for('static', filename='imgs/agent.png')}}" alt="" style="z-index: 7">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["22"]["wumpus"] == True %}
+                        <img class="character wumpus" src="{{url_for('static', filename='imgs/wumpus.png')}}" alt="" style="z-index: 3">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["22"]["pit"] == True %}
+                        <img class="character pit" src="{{url_for('static', filename='imgs/pit.png')}}" alt="" style="z-index: 1">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["22"]["gold"] == True %}
+                        <img class="character gold" src="{{url_for('static', filename='imgs/gold.png')}}" alt="" style="z-index: 2">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["22"]["breeze"] == True %}
+                        <img class="character breeze" src="{{url_for('static', filename='imgs/breeze.png')}}" alt="" style="z-index: 4">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["22"]["glitter"] == True %}
+                        <img class="character glitter" src="{{url_for('static', filename='imgs/glitter.png')}}" alt="" style="z-index: 6">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["22"]["stench"] == True %}
+                        <img class="character stench" src="{{url_for('static', filename='imgs/stench.png')}}" alt="" style="z-index: 5">
+                        {% endif %}
+                    </div>
+                    <div class="maze-cell">
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["23"]["agent"] == True %}
+                        <img class="character agent" src="{{url_for('static', filename='imgs/agent.png')}}" alt="" style="z-index: 7">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["23"]["wumpus"] == True %}
+                        <img class="character wumpus" src="{{url_for('static', filename='imgs/wumpus.png')}}" alt="" style="z-index: 3">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["23"]["pit"] == True %}
+                        <img class="character pit" src="{{url_for('static', filename='imgs/pit.png')}}" alt="" style="z-index: 1">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["23"]["gold"] == True %}
+                        <img class="character gold" src="{{url_for('static', filename='imgs/gold.png')}}" alt="" style="z-index: 2">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["23"]["breeze"] == True %}
+                        <img class="character breeze" src="{{url_for('static', filename='imgs/breeze.png')}}" alt="" style="z-index: 4">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["23"]["glitter"] == True %}
+                        <img class="character glitter" src="{{url_for('static', filename='imgs/glitter.png')}}" alt="" style="z-index: 6">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["23"]["stench"] == True %}
+                        <img class="character stench" src="{{url_for('static', filename='imgs/stench.png')}}" alt="" style="z-index: 5">
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="maze-row">
+                    <div class="maze-cell">
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["30"]["agent"] == True %}
+                        <img class="character agent" src="{{url_for('static', filename='imgs/agent.png')}}" alt="" style="z-index: 7">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["30"]["wumpus"] == True %}
+                        <img class="character wumpus" src="{{url_for('static', filename='imgs/wumpus.png')}}" alt="" style="z-index: 3">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["30"]["pit"] == True %}
+                        <img class="character pit" src="{{url_for('static', filename='imgs/pit.png')}}" alt="" style="z-index: 1">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["30"]["gold"] == True %}
+                        <img class="character" src="{{url_for('static', filename='imgs/gold.png')}}" alt="" style="z-index: 2">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["30"]["breeze"] == True %}
+                        <img class="character breeze" src="{{url_for('static', filename='imgs/breeze.png')}}" alt="" style="z-index: 4">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["30"]["glitter"] == True %}
+                        <img class="character glitter" src="{{url_for('static', filename='imgs/glitter.png')}}" alt="" style="z-index: 6">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["30"]["stench"] == True %}
+                        <img class="character stench" src="{{url_for('static', filename='imgs/stench.png')}}" alt="" style="z-index: 5">
+                        {% endif %}
+                    </div>
+                    <div class="maze-cell">
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["31"]["agent"] == True %}
+                        <img class="character agent" src="{{url_for('static', filename='imgs/agent.png')}}" alt="" style="z-index: 7">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["31"]["wumpus"] == True %}
+                        <img class="character wumpus" src="{{url_for('static', filename='imgs/wumpus.png')}}" alt="" style="z-index: 2">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["31"]["pit"] == True %}
+                        <img class="character pit" src="{{url_for('static', filename='imgs/pit.png')}}" alt="" style="z-index: 1">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["31"]["gold"] == True %}
+                        <img class="character gold" src="{{url_for('static', filename='imgs/gold.png')}}" alt="" style="z-index: 3">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["31"]["breeze"] == True %}
+                        <img class="character breeze" src="{{url_for('static', filename='imgs/breeze.png')}}" alt="" style="z-index: 4">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["31"]["glitter"] == True %}
+                        <img class="character glitter" src="{{url_for('static', filename='imgs/glitter.png')}}" alt="" style="z-index: 6">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["31"]["stench"] == True %}
+                        <img class="character stench" src="{{url_for('static', filename='imgs/stench.png')}}" alt="" style="z-index: 5">
+                        {% endif %}
+                    </div>
+                    <div class="maze-cell">
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["32"]["agent"] == True %}
+                        <img class="character agent" src="{{url_for('static', filename='imgs/agent.png')}}" alt="" style="z-index: 7">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["32"]["wumpus"] == True %}
+                        <img class="character wumpus" src="{{url_for('static', filename='imgs/wumpus.png')}}" alt="" style="z-index: 3">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["32"]["pit"] == True %}
+                        <img class="character pit" src="{{url_for('static', filename='imgs/pit.png')}}" alt="" style="z-index: 1">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["32"]["gold"] == True %}
+                        <img class="character gold" src="{{url_for('static', filename='imgs/gold.png')}}" alt="" style="z-index: 2">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["32"]["breeze"] == True %}
+                        <img class="character breeze" src="{{url_for('static', filename='imgs/breeze.png')}}" alt="" style="z-index: 4">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["32"]["glitter"] == True %}
+                        <img class="character glitter" src="{{url_for('static', filename='imgs/glitter.png')}}" alt="" style="z-index: 6">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["32"]["stench"] == True %}
+                        <img class="character stench" src="{{url_for('static', filename='imgs/stench.png')}}" alt="" style="z-index: 5">
+                        {% endif %}
+                    </div>
+                    <div class="maze-cell">
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["33"]["agent"] == True %}
+                        <img class="character agent" src="{{url_for('static', filename='imgs/agent.png')}}" alt="" style="z-index: 7">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["33"]["wumpus"] == True %}
+                        <img class="character wumpus" src="{{url_for('static', filename='imgs/wumpus.png')}}" alt="" style="z-index: 3">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["33"]["pit"] == True %}
+                        <img class="character pit" src="{{url_for('static', filename='imgs/pit.png')}}" alt="" style="z-index: 1">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["33"]["gold"] == True %}
+                        <img class="character gold" src="{{url_for('static', filename='imgs/gold.png')}}" alt="" style="z-index: 2">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["33"]["breeze"] == True %}
+                        <img class="character breeze" src="{{url_for('static', filename='imgs/breeze.png')}}" alt="" style="z-index: 4">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["33"]["glitter"] == True %}
+                        <img class="character glitter" src="{{url_for('static', filename='imgs/glitter.png')}}" alt="" style="z-index: 6">
+                        {% endif %}
+                        <div class="maze-cell-grey"></div>
+                        {% if matrix["33"]["stench"] == True %}
+                        <img class="character stench" src="{{url_for('static', filename='imgs/stench.png')}}" alt="" style="z-index: 5">
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--<img class="maze" src="{{ url_for('static', filename='imgs/maze.png')}}" alt="nothing">-->
+    </div>
+    <div class="action">
+        {% if matrix["action"] %}
+            <img src="{{url_for('static', filename='imgs/' + matrix.action + '.png')}}" alt="">
+        {% endif %}
+    </div>
+    <div class="controlers">
+        <a href="/game/{{matrix['prev']}}" class="prev">
+            <img src="{{url_for('static', filename='imgs/prev_btn.png')}}" alt="">
+        </a>
+        <a href="/game/{{matrix['next']}}" class="next">
+            <img src="{{url_for('static', filename='imgs/next_btn.png')}}" alt="">
+        </a>
+    </div>
+</body>
+</html>

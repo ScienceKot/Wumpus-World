@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wumpus world</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css')}}">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=VT323">
+</head>
+<body>
+    <div class="main-page">
+        <div class="mainpage" style="background-image: url({{url_for('static', filename='imgs/main.png')}})">
+            <div class="wumpus-title">
+                Wumpus world
+            </div>
+            <div class="buttons">
+                <a href="/game/0">
+                    <img src="{{url_for('static', filename='imgs/play.png')}}" alt="">
+                </a>
+            </div>
+         </div>
+    </div>
+</body>
+</html>

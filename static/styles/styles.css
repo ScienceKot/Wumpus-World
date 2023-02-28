@@ -1,0 +1,127 @@
+* {
+    padding: 0px;
+    border: 0px;
+}
+
+body {
+    background-color: black;
+}
+
+.main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: black;
+}
+
+.maze {
+    width: 621px;
+    height:621px;
+    display: flex;
+    background-repeat: no-repeat;
+    flex-direction: column;
+    align-items: center;
+}
+
+.maze-mini {
+    width: 44%;
+    height: 44%;
+    display:flex;
+    margin-top: 30%;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.maze-row {
+    display:flex;
+    height: 20%;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.maze-cell {
+    display:flex;
+    width: 20%;
+    height: 100%;
+    flex-direction: row;
+    justify-content: space-evenly;
+    z-index: 100;
+    position: relative;
+    overflow: hidden;
+}
+
+.maze-cell-grey {
+height : 100%;
+width: 100%;
+    background: grey;
+    opacity: 0.5;
+}
+
+.character {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    opacity: initial;
+}
+
+.breeze .stench .glitter {
+    opacity: 0.7
+}
+
+.controlers {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.action {
+    color: white;
+    font-size: 20px;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.replay {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.main-page {
+    display : flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #222b33;
+    height: 900px;
+}
+
+.mainpage {
+    display : flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 621px;
+    height: 621px;
+    display: flex;
+    background-color: #222b33;
+    align-items: center;
+}
+
+.buttons {
+    width: 60%;
+    height 100px;
+
+}
+
+.wumpus-title {
+    font-family: VT323, serif;
+    font-size: 50px;
+    color: violet;
+    text-shadow: 7px 7px #6c25be;
+}
